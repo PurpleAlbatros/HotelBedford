@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 20,
     fontWeight: "600",
-    color: "#000",
+    color: "green",
     marginBottom: 16,
   },
   sectionTitle: {

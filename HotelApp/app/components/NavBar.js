@@ -25,7 +25,7 @@ export default function NavBar() {
 
       <TouchableOpacity
         style={styles.navButton}
-        onPress={() => handleNavigation("Home")}
+        onPress={() => handleNavigation("Login")}
       >
         <Text style={styles.navButtonText}>Reservations</Text>
       </TouchableOpacity>

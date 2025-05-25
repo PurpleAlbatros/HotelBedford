@@ -64,13 +64,13 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   bedType: {
-    fontSize: 14,
+    fontSize: 13,
     color: "#666",
     marginBottom: 4,
   },
   price: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: "600",
-    color: "#000",
+    color: "green",
   },
 });
