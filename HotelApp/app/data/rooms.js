@@ -1,7 +1,10 @@
-const rooms = {
+export const rooms = {
   kingRoom: {
     name: "King Room",
     bedType: "1 King Bed",
+    price: 109,
+    image:
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
     optionalFeatures: ["Rollaway Beds"],
     bathroom: "Ensuite Bath with Shower/Tub",
     amenities: {
@@ -21,6 +24,9 @@ const rooms = {
   doubleQueen: {
     name: "Double queen room",
     bedType: "2 Double Beds",
+    price: 109,
+    image:
+      "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=400&h=300&fit=crop",
     optionalFeatures: [],
     bathroom: "Private Bathroom with Shower",
     amenities: {
@@ -40,6 +46,9 @@ const rooms = {
   queensAndPullRoom: {
     name: "Queen Room",
     bedType: "1 Queen Bed",
+    price: 109,
+    image:
+      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=400&h=300&fit=crop",
     optionalFeatures: ["Crib (on request)"],
     bathroom: "Modern Bathroom with Rain Shower",
     amenities: {
@@ -55,6 +64,9 @@ const rooms = {
   queenSofa: {
     name: "Queen",
     bedType: "1 Queen Bed",
+    price: 109,
+    image:
+      "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=400&h=300&fit=crop",
     additionalSleeping: ["Sofa Bed"],
     optionalFeatures: ["Rollaway Bed"],
     bathroom: "Ensuite Bath with Shower/Tub",
@@ -75,6 +87,9 @@ const rooms = {
   double: {
     name: "Double Beds Room",
     bedType: "1 or 2 Double Beds",
+    price: 109,
+    image:
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300&fit=crop",
     optionalFeatures: ["Rollaway Bed"],
     bathroom: "Ensuite Bath with Shower/Tub",
     amenities: {
