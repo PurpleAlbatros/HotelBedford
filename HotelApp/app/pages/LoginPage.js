@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -8,16 +8,40 @@ import {
   Alert,
 } from "react-native";
 import RegistrationButton from "../components/RegistrationButton";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import AuthContext from "../logic/AuthContext";
+import { getUsers } from "../api/Api";
 
 export default function LoginPage() {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const [users, setUsers] = useState([]);
+  useFocusEffect(
+    useCallback(() => {
+      async function fetchUsers() {
+        const fetchedUsers = await getUsers();
+
+        if (fetchedUsers) {
+          const usersArray = Object.keys(fetchedUsers).map((key) => ({
+            id: key,
+            ...data[key],
+          }));
+
+          console.log("usersArray", usersArray);
+          setUsers(usersArray);
+        } else {
+          console.log("bruh");
+          setUsers([]);
+        }
+      }
+      fetchUsers();
+    }, [])
+  );
 
   const handleLogin = () => {
+    console.log(users);
     if (email === "test" && password === "123") {
       Alert.alert("Login Successful", `Welcome, ${email}!`);
       setIsLoggedIn(true);
@@ -56,7 +80,7 @@ export default function LoginPage() {
         style={styles.footer}
         onPress={() => navigation.navigate("Forgot")}
       >
-        <Text>Don't have an account?</Text>
+        <Text>you forgot your password?</Text>
       </TouchableOpacity>
       <RegistrationButton />
     </View>

@@ -7,6 +7,7 @@ import {
   Alert,
   SafeAreaView,
 } from "react-native";
+import { postUser, getUsers } from "../api/Api";
 
 export default function RegistrationPage({ navigation }) {
   const [name, setName] = useState("");
@@ -18,7 +19,10 @@ export default function RegistrationPage({ navigation }) {
       Alert.alert("Missing Fields", "Please fill out all fields.");
       return;
     }
-
+    const newUser = { name, email, password };
+    postUser(newUser);
+    const users = getUsers();
+    console.log(users);
     Alert.alert("Registration Successful", `Welcome, ${name}!`);
     navigation.navigate("Home"); // navigation here!!
   };
