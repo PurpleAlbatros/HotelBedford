@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   View,
   Text,
@@ -9,15 +9,19 @@ import {
 } from "react-native";
 import RegistrationButton from "../components/RegistrationButton";
 import { useNavigation } from "@react-navigation/native";
+import AuthContext from "../logic/AuthContext";
 
 export default function LoginPage() {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   const handleLogin = () => {
-    if (email && password) {
+    if (email === "test" && password === "123") {
       Alert.alert("Login Successful", `Welcome, ${email}!`);
+      setIsLoggedIn(true);
+      navigation.navigate("Home");
     } else {
       Alert.alert("Login Failed", "Please enter both email and password.");
     }

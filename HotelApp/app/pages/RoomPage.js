@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   Button,
 } from "react-native";
+import { Icon } from "react-native-elements";
 
 import React, { useState } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -26,8 +27,9 @@ export default function RoomPage({ route }) {
         <Text style={styles.name}>{room.name}</Text>
         <Text style={styles.bedType}>{room.bedType}</Text>
         <Text style={styles.price}>${room.price}</Text>
+        <Icon name="event" />
         <Button
-          title="book"
+          title="book now"
           buttonStyle={{
             backgroundColor: "black",
             borderWidth: 2,
@@ -92,21 +94,6 @@ export default function RoomPage({ route }) {
             • {item}
           </Text>
         ))}
-      </View>
-      <View style={styles.container}>
-        <DateTimePicker
-          value={date}
-          mode={"date"}
-          is24Hour={true}
-          onChange={onChange}
-        />
-        <DateTimePicker
-          value={date}
-          mode={"days"}
-          is24Hour={true}
-          onChange={onChange}
-        />
-        <Text>{date.toLocaleString()}</Text>
       </View>
     </ScrollView>
   );
