@@ -12,7 +12,7 @@ export default function RoomPage({ route }) {
   const { room } = route.params;
   return (
     <ScrollView style={styles.container}>
-      <Image style={styles.image} source={{ uri: room.image }} />
+      <Image style={styles.image} source={room.image} />
       <View style={styles.textContainer}>
         <Text style={styles.name}>{room.name}</Text>
         <Text style={styles.bedType}>{room.bedType}</Text>

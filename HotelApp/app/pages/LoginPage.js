@@ -8,13 +8,14 @@ import {
   Alert,
 } from "react-native";
 import RegistrationButton from "../components/RegistrationButton";
+import { useNavigation } from "@react-navigation/native";
 
 export default function LoginPage() {
+  const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    // Temporary dummy check
     if (email && password) {
       Alert.alert("Login Successful", `Welcome, ${email}!`);
     } else {
@@ -47,7 +48,12 @@ export default function LoginPage() {
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
 
-      <Text style={styles.footer}>Don't have an account?</Text>
+      <TouchableOpacity
+        style={styles.footer}
+        onPress={() => navigation.navigate("Forgot")}
+      >
+        <Text>Don't have an account?</Text>
+      </TouchableOpacity>
       <RegistrationButton />
     </View>
   );

@@ -11,21 +11,10 @@ import RoomCard from "../components/RoomCard";
 import { rooms } from "../data/rooms";
 
 export default function HomePage() {
-  // const handleBackPress = () => {
-  //   // Add your back navigation logic here
-  //   console.log("Back pressed");
-  // };
   return (
     <View style={styles.container}>
-      {/* Back Button */}
-      {/* <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
-        <Text style={styles.backText}>← Back</Text>
-      </TouchableOpacity> */}
-
-      {/* Title */}
       <Text style={styles.title}>Hotel Room</Text>
 
-      {/* Room List */}
       <FlatList
         data={Object.values(rooms)}
         keyExtractor={(item, index) => index.toString()}

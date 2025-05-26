@@ -19,9 +19,8 @@ export default function RegistrationPage({ navigation }) {
       return;
     }
 
-    // Simulate successful registration
     Alert.alert("Registration Successful", `Welcome, ${name}!`);
-    navigation.navigate("Home"); // Navigate after registration
+    navigation.navigate("Home"); // navigation here!!
   };
 
   return (

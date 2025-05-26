@@ -15,7 +15,7 @@ export default function RoomCard({ room }) {
     <View style={styles.card}>
       <Pressable onPress={handlePress}>
         <View style={styles.imageContainer}>
-          <Image style={styles.image} source={{ uri: room.image }} />
+          <Image style={styles.image} source={room.image} />
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.name}>{room.name}</Text>

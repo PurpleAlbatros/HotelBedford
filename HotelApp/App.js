@@ -6,6 +6,7 @@ import NavBar from "./app/components/NavBar";
 import LoginPage from "./app/pages/LoginPage";
 import RegistrationPage from "./app/pages/RegistrationPage";
 import RoomPage from "./app/pages/RoomPage";
+import ForgotPasswordPage from "./app/pages/ForgotPasswordPage";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -32,6 +33,11 @@ export default function App() {
           <Stack.Screen
             name="Room"
             component={RoomPage}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Forgot"
+            component={ForgotPasswordPage}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
