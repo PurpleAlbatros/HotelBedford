@@ -5,11 +5,20 @@ import {
   Image,
   ScrollView,
   SafeAreaView,
+  Button,
 } from "react-native";
-import React from "react";
+
+import React, { useState } from "react";
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 export default function RoomPage({ route }) {
   const { room } = route.params;
+  const [showPicker, setShowPicker] = useState(false);
+
+  const [date, setDate] = useState(new Date());
+  const onChange = (e, selectedDate) => {
+    setDate(selectedDate);
+  };
   return (
     <ScrollView style={styles.container}>
       <Image style={styles.image} source={room.image} />
@@ -17,7 +26,21 @@ export default function RoomPage({ route }) {
         <Text style={styles.name}>{room.name}</Text>
         <Text style={styles.bedType}>{room.bedType}</Text>
         <Text style={styles.price}>${room.price}</Text>
-
+        <Button
+          title="book"
+          buttonStyle={{
+            backgroundColor: "black",
+            borderWidth: 2,
+            borderColor: "white",
+            borderRadius: 30,
+          }}
+          containerStyle={{
+            width: 200,
+            marginHorizontal: 50,
+            marginVertical: 10,
+          }}
+          titleStyle={{ fontWeight: "bold" }}
+        />
         <Text style={styles.sectionTitle}>Bathroom</Text>
         <Text style={styles.detail}>{room.bathroom}</Text>
 
@@ -69,6 +92,21 @@ export default function RoomPage({ route }) {
             • {item}
           </Text>
         ))}
+      </View>
+      <View style={styles.container}>
+        <DateTimePicker
+          value={date}
+          mode={"date"}
+          is24Hour={true}
+          onChange={onChange}
+        />
+        <DateTimePicker
+          value={date}
+          mode={"days"}
+          is24Hour={true}
+          onChange={onChange}
+        />
+        <Text>{date.toLocaleString()}</Text>
       </View>
     </ScrollView>
   );
