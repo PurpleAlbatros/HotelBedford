@@ -7,6 +7,7 @@ import {
   Alert,
   SafeAreaView,
 } from "react-native";
+
 import { postUser, getUsers } from "../api/Api";
 
 export default function RegistrationPage({ navigation }) {

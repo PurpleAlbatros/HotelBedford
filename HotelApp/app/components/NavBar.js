@@ -19,7 +19,7 @@ export default function NavBar() {
   };
   const handleLogOut = () => {
     setIsLoggedIn(false);
-    Alert.alert("Logged out successful", "You been logged out lil bro!!! ");
+    Alert.alert("Logged out successful", "You been logged out ");
     navigation.navigate("Home");
   };
   return (

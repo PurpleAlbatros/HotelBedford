@@ -20,34 +20,36 @@ export default function LoginPage() {
   const [users, setUsers] = useState([]);
   useFocusEffect(
     useCallback(() => {
-      async function fetchUsers() {
-        const fetchedUsers = await getUsers();
+      function fetchUsers() {
+        getUsers().then((fetchedUsers) => {
+          setUsers(fetchedUsers);
+        });
 
-        if (fetchedUsers) {
-          const usersArray = Object.keys(fetchedUsers).map((key) => ({
-            id: key,
-            ...data[key],
-          }));
-
-          console.log("usersArray", usersArray);
-          setUsers(usersArray);
-        } else {
-          console.log("bruh");
-          setUsers([]);
-        }
+        // if (fetchedUsers) {
+        //   console.log("usersArray", fetchedUsers);
+        //   setUsers(fetchedUsers);
+        // } else {
+        //   console.log("bruh");
+        //   setUsers([]);
+        // }
       }
       fetchUsers();
     }, [])
   );
 
   const handleLogin = () => {
-    console.log(users);
-    if (email === "test" && password === "123") {
-      Alert.alert("Login Successful", `Welcome, ${email}!`);
+    const user = users.find(
+      (u) => u.email === email && u.password === password
+    );
+
+    if (user) {
+      console.log("Login success:", user.name);
+      Alert.alert("Login Successful", `Welcome, ${user.name}!`);
       setIsLoggedIn(true);
       navigation.navigate("Home");
     } else {
       Alert.alert("Login Failed", "Please enter both email and password.");
+      console.log("Invalid email or password");
     }
   };
 

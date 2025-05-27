@@ -3,7 +3,11 @@ const endPoint =
 async function getUsers() {
   const reponse = await fetch(`${endPoint}/users.json`);
   const data = await reponse.json();
-  return data;
+  const usersArray = Object.keys(data).map((key) => ({
+    id: key,
+    ...data[key],
+  }));
+  return usersArray;
 }
 async function postUser(user) {
   const reponse = await fetch(`${endPoint}/users.json`, {
