@@ -25,13 +25,15 @@ export default function LoginPage() {
           setUsers(fetchedUsers);
         });
 
-        // if (fetchedUsers) {
-        //   console.log("usersArray", fetchedUsers);
-        //   setUsers(fetchedUsers);
-        // } else {
-        //   console.log("bruh");
-        //   setUsers([]);
-        // }
+        // / det er denne section du skal slette
+
+        if (fetchedUsers) {
+          console.log("usersArray", fetchedUsers);
+          setUsers(fetchedUsers);
+        } else {
+          console.log("bruh");
+          setUsers([]);
+        }
       }
       fetchUsers();
     }, [])
