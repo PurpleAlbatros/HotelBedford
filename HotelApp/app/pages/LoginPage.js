@@ -30,7 +30,7 @@ export default function LoginPage() {
         //   setUsers(fetchedUsers);
         // } else {
         //   console.log("bruh");
-        //   setUsers([]);
+        //   setUsers([]); g
         // }
       }
       fetchUsers();
