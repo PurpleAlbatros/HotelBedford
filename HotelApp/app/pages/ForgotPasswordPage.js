@@ -71,15 +71,15 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   button: {
-    backgroundColor: "black",
+    backgroundColor: "green",
     paddingVertical: 14,
-    borderRadius: 8,
+    borderRadius: 30,
     alignItems: "center",
     marginBottom: 16,
   },
   buttonText: {
     color: "#fff",
-    fontWeight: "600",
+    fontWeight: "bold",
     fontSize: 16,
   },
   loginLink: {

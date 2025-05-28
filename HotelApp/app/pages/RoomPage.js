@@ -5,9 +5,8 @@ import {
   Image,
   ScrollView,
   SafeAreaView,
-  Button,
 } from "react-native";
-import { Icon } from "react-native-elements";
+import { Icon, Button } from "react-native-elements";
 
 import React, { useState } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -15,6 +14,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 export default function RoomPage({ route }) {
   const { room } = route.params;
   const [showPicker, setShowPicker] = useState(false);
+  const [message, setMessage] = useState("");
 
   const [date, setDate] = useState(new Date());
   const onChange = (e, selectedDate) => {
@@ -31,18 +31,22 @@ export default function RoomPage({ route }) {
         <Button
           title="book now"
           buttonStyle={{
-            backgroundColor: "black",
+            backgroundColor: "green",
             borderWidth: 2,
-            borderColor: "white",
+            borderColor: "indigo",
             borderRadius: 30,
           }}
           containerStyle={{
-            width: 200,
+            width: 225,
             marginHorizontal: 50,
-            marginVertical: 10,
+            marginVertical: 1,
           }}
-          titleStyle={{ fontWeight: "bold" }}
+          titleStyle={{
+            fontWeight: "bold",
+            color: "white",
+          }}
         />
+
         <Text style={styles.sectionTitle}>Bathroom</Text>
         <Text style={styles.detail}>{room.bathroom}</Text>
 
