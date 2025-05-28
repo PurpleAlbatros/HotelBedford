@@ -1,69 +1,17 @@
-name: Hotel App CI/CD
+name: Simple Test
 
-# When to run this workflow
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
-  build:
-    name: Build and Test Hotel App
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Get the code from your repository
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js (Expo needs Node.js)
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18"
-          cache: "npm"
-
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: npm install
-
-      # Step 4: Install Expo CLI
-      - name: Install Expo CLI
-        run: npm install -g @expo/cli
-
-      # Step 5: Check if project builds without errors
-      - name: Check Expo project
-        run: npx expo doctor
-
-      # Step 6: Try to prebuild (this checks if everything is configured correctly)
-      - name: Prebuild project
-        run: npx expo prebuild --no-install --platform android
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-
-  build-ios:
-    name: Build iOS
-    runs-on: macos-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Expo CLI
-        run: npm install -g @expo/cli
-
-      - name: Prebuild iOS project
-        run: npx expo prebuild --no-install --platform ios
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      - name: Say hello
+        run: echo "Hello from GitHub Actions!"
