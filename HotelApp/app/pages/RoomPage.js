@@ -7,18 +7,12 @@ import {
   SafeAreaView,
 } from "react-native";
 import { Icon, Button } from "react-native-elements";
-
 import React, { useState } from "react";
-import DateTimePicker from "@react-native-community/datetimepicker";
 
 export default function RoomPage({ route }) {
   const { room } = route.params;
-  const [showPicker, setShowPicker] = useState(false);
-  const [message, setMessage] = useState("");
 
-  const [date, setDate] = useState(new Date());
-  const onChange = (e, selectedDate) => {
-    setDate(selectedDate);
+  
   };
   return (
     <ScrollView style={styles.container}>
