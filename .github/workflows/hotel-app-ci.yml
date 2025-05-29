@@ -1,6 +1,5 @@
 name: Hotel App CI/CD
 
-# When to run this workflow
 on:
   push:
     branches: [main, develop]
@@ -13,36 +12,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Get the code from your repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js (Expo needs Node.js)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: "npm"
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
+        working-directory: HotelApp
 
-      # Step 4: Install Expo CLI
       - name: Install Expo CLI
         run: npm install -g @expo/cli
 
-      # Step 5: Check if project builds without errors
       - name: Check Expo project
         run: npx expo doctor
+        working-directory: HotelApp
 
-      # Step 6: Try to prebuild (this checks if everything is configured correctly)
       - name: Prebuild project
         run: npx expo prebuild --no-install --platform android
+        working-directory: HotelApp
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
-  # Optional: iOS build job (only runs on main branch)
   build-ios:
     name: Build iOS
     runs-on: macos-latest
@@ -60,11 +55,13 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: HotelApp
 
       - name: Install Expo CLI
         run: npm install -g @expo/cli
 
       - name: Prebuild iOS project
         run: npx expo prebuild --no-install --platform ios
+        working-directory: HotelApp
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
