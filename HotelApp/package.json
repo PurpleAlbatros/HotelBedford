@@ -27,5 +27,17 @@
     "@babel/core": "^7.20.0",
     "@types/react": "~19.0.10"
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "exclude": [
+          "react-native-simple-bcrypt",
+          "bcryptjs",
+          "react-native-bcrypt",
+          "react-native-elements"
+        ]
+      }
+    }
+  }
 }
