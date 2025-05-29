@@ -1,19 +1,10 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import { Icon, Button } from "react-native-elements";
-import React, { useState } from "react";
+import React from "react";
 
 export default function RoomPage({ route }) {
   const { room } = route.params;
 
-  
-  };
   return (
     <ScrollView style={styles.container}>
       <Image style={styles.image} source={room.image} />
@@ -21,7 +12,7 @@ export default function RoomPage({ route }) {
         <Text style={styles.name}>{room.name}</Text>
         <Text style={styles.bedType}>{room.bedType}</Text>
         <Text style={styles.price}>${room.price}</Text>
-        <Icon name="event" />
+        <Icon name="event" type="material" />
         <Button
           title="book now"
           buttonStyle={{
@@ -33,17 +24,15 @@ export default function RoomPage({ route }) {
           containerStyle={{
             width: 225,
             marginHorizontal: 50,
-            marginVertical: 1,
+            marginVertical: 10,
           }}
           titleStyle={{
             fontWeight: "bold",
             color: "white",
           }}
         />
-
         <Text style={styles.sectionTitle}>Bathroom</Text>
         <Text style={styles.detail}>{room.bathroom}</Text>
-
         <Text style={styles.sectionTitle}>Optional Features</Text>
         {room.optionalFeatures?.length > 0 ? (
           room.optionalFeatures.map((feature, index) => (
@@ -54,38 +43,31 @@ export default function RoomPage({ route }) {
         ) : (
           <Text style={styles.detail}>None</Text>
         )}
-
         <Text style={styles.sectionTitle}>Amenities</Text>
         <Text style={styles.subSection}>Climate Control</Text>
         <Text style={styles.detail}>{room.amenities.climateControl}</Text>
-
         <Text style={styles.subSection}>Electronics</Text>
         {room.amenities.electronics.map((item, index) => (
           <Text key={index} style={styles.detail}>
             • {item}
           </Text>
         ))}
-
         <Text style={styles.subSection}>Lighting</Text>
         <Text style={styles.detail}>{room.amenities.lighting}</Text>
-
-        <Text style={styles.subSection}>Workspace</Text>
+        <Text style={styles.subSection}>Workspace </Text>
         <Text style={styles.detail}>{room.amenities.workspace}</Text>
-
-        <Text style={styles.subSection}>Communication</Text>
+        <Text style={styles.subSection}>Communication </Text>
         {room.amenities.communication.map((item, index) => (
           <Text key={index} style={styles.detail}>
             • {item}
           </Text>
         ))}
-
         <Text style={styles.subSection}>Personal Care</Text>
         {room.amenities.personalCare.map((item, index) => (
           <Text key={index} style={styles.detail}>
             • {item}
           </Text>
         ))}
-
         <Text style={styles.subSection}>Other</Text>
         {room.amenities.other.map((item, index) => (
           <Text key={index} style={styles.detail}>
