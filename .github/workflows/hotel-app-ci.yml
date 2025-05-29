@@ -25,14 +25,11 @@ jobs:
         run: npm install
         working-directory: HotelApp
 
-      - name: Install Expo CLI
-        run: npm install -g @expo/cli
-
-      - name: Check Expo project
-        run: npx expo doctor
+      - name: Check Expo project with expo-doctor
+        run: npx expo-doctor
         working-directory: HotelApp
 
-      - name: Prebuild project
+      - name: Prebuild project (Android)
         run: npx expo prebuild --no-install --platform android
         working-directory: HotelApp
         env:
@@ -56,9 +53,6 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: HotelApp
-
-      - name: Install Expo CLI
-        run: npm install -g @expo/cli
 
       - name: Prebuild iOS project
         run: npx expo prebuild --no-install --platform ios
